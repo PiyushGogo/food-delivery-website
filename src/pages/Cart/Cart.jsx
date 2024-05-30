@@ -15,7 +15,7 @@ const Cart = () => {
           <p>Items</p>
           <p>Title</p>
           <p>Price</p>
-          <p>Quentity</p>
+          <p>Quantity</p>
           <p>Total</p>
           <p>Remove</p>
         </div>
@@ -24,7 +24,9 @@ const Cart = () => {
         {food_list.map((item, index) => {
           if (cartItems[item._id] > 0) {
             return (
-              <div>
+              <div key={index}>
+                {" "}
+                {/* Add a key prop for each mapped item */}
                 <div className="cart-items-title cart-items-item">
                   <img src={item.image} alt="" />
                   <p>{item.name}</p>
@@ -41,6 +43,8 @@ const Cart = () => {
           }
           return null;
         })}
+        {/* Ensure a return value at the end of the map function */}
+        {null}
       </div>
       <div className="cart-bottom">
         <div className="cart-total">
@@ -67,9 +71,9 @@ const Cart = () => {
         </div>
         <div className="cart-promodcode">
           <div>
-            <p>If you have a promocode enter here</p>
+            <p>If you have a promo code, enter here</p>
             <div className="cart-promocode-input">
-              <input type="text" placeholder="PROMOCODE" />
+              <input type="text" placeholder="PROMO CODE" />
               <button>Submit</button>
             </div>
           </div>
